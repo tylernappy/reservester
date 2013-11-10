@@ -8,7 +8,14 @@
 </head>
 <body>
 
-<%= yield %>
+<%= nav_bar :fixed => :top, :brand => "Ty's Kickin' Restaurant Guide" do %>
+    <% menu_group do %>
+        <%= menu_item "Home", root_path %>
+    <% end %>
+<% end %>
 
+<div class="container">
+	<%= yield %>
+</div>
 </body>
 </html>

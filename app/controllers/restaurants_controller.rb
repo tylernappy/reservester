@@ -1,10 +1,12 @@
 class RestaurantsController < ApplicationController
+  #before_filter :find_restaurant, only: [:show, :edit]
   def index
   	@restaurants = Restaurant.all
+    #@result = Restaurant.multiply(params[:num1], params[:num2])
   end
 
   def show
-    @restaurant = Restaurant.find(params[:id])
+   @restaurant = Restaurant.find(params[:id])
   end
 
   def new
@@ -39,7 +41,7 @@ class RestaurantsController < ApplicationController
     if @restaurant.update_attributes(params[:restaurant].permit(:name, :description, :address, :phone))
       redirect_to @restaurant, notice: 'Restaurant was successfully updated.'
     else
-      render action: "edit"
+      render action: "edit" #"redirect to somewhere else"
     end
   end
 
@@ -52,7 +54,11 @@ class RestaurantsController < ApplicationController
 
   private
   def post_params
-  	params.require(:restaurant).permit(:name, :description, :address, :phone)
+  	params.require(:restaurant).permit(:name, :description, :address, :phone, :image)
   end
+
+  # def find_restaurant
+  #   @restaurant = Restaurant.find(params[:id])
+  # end
 
 end

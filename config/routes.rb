@@ -1,6 +1,9 @@
 Reservester::Application.routes.draw do
   root to: "restaurants#index"
   resources :restaurants
+
+  # match "restaurants" to: "restraurants#index"
+  # match "restaurants/new" to: "restaurants#new"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
