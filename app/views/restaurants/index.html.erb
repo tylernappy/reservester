@@ -3,6 +3,7 @@
 <ul>
   <% @restaurants.each do |restaurant| %>
     <li>
+      <%= image_tag restaurant.image.thumb if restaurant.image.present? %></td>
       <%= link_to restaurant.name, restaurant %></td>
     </li>
   <% end %>

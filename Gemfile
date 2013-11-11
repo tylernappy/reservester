@@ -32,7 +32,8 @@ gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem 'twitter-bootstrap-rails'
 gem 'carrierwave'
 #gem 'rmagick'
-
+gem 'mini_magick'
+gem 'dotenv-rails', :groups => [:development, :test]
 
 
 group :doc do
