@@ -1,0 +1,23 @@
+<%- model_class = Restaurant -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+      	<td><%= link_to restaurant.name, restaurant %></td>
+        <td><%= image_tag restaurant.image.thumbnail if restaurant.image.present? %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_restaurant_path,
+            :class => 'btn btn-primary' %>
