@@ -34,6 +34,7 @@ group :development, :test do
 	gem 'mysql2'
 	gem 'rspec-rails' 
 	gem 'factory_girl_rails'
+	gem 'debugger'
 end
 
 group :doc do

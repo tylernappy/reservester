@@ -1,58 +1,23 @@
-<%= form_for @restaurant, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :description, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :image, :class => 'control-label' %>
-    <div class="controls">
-      <%= image_tag(@restaurant.image_url) if @restaurant.image? %>
-      <%= f.file_field :image, :class => 'text_field' %>
-      <%= f.hidden_field :image_cache %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :owner_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :owner_id, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :address, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :address, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :city, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :city, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :state, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :state, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :phone, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :phone, :class => 'text_field' %>
-    </div>
-  </div>
+<%= form_for @restaurant, :html => { :mulitpart => true } do |f| %>
+  
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.label :image %>
+      
+ 
+  <%= f.file_field :image %>
+  <%= f.hidden_field :image_cache %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <%= f.label :city %>
+  <%= f.text_field :city %>
+  <%= f.label :state %>
+  <%= f.text_field :state %>
+  <%= f.label :phone %>
+  <%= f.text_field :phone %>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                restaurants_path, :class => 'btn' %>
-  </div>
+  <dt><%= f.submit "Submit", :class => 'btn' %></dt>
+
 <% end %>

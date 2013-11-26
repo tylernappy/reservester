@@ -18,7 +18,7 @@ class RestaurantsController < ApplicationController
   end
   
   def create
-     @restaurant = current_owner.restaurants.build(restaurant_permit)
+    @restaurant = current_owner.restaurants.build(restaurant_permit)
 
     if @restaurant.save
       redirect_to @restaurant, notice: 'Restaurant was successfully created.'
@@ -28,7 +28,8 @@ class RestaurantsController < ApplicationController
   end
   
   def show
-  	@restaurant=Restaurant.find(params[:id])
+  	@restaurant = Restaurant.find(params[:id])
+    @reservation = @restaurant.reservations.build
   end
 
   def edit
@@ -55,7 +56,6 @@ private
   def restaurant_permit
     params.require(:restaurant).permit(:name, :description, :address, :phone, :city, :state, :image)
   end
-
 
   def confirm_ownership
     restaurant = Restaurant.find(params[:id])
